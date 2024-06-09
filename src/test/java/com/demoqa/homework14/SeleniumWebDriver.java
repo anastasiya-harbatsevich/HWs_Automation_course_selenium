@@ -1,4 +1,4 @@
-package homework14;
+package com.demoqa.homework14;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -14,23 +14,23 @@ import java.time.Duration;
 import static org.junit.Assert.assertEquals;
 
 public class SeleniumWebDriver {
-    public static final By ELEMENTS_CARD = By.xpath("/html/body/div[2]/div/div/div[2]/div/div[1]/div/div[3]/h5");
-    public static final By RADIO_BUTTON_MENU_ITEM = By.id("item-2");
-    public static final By RADIO_BUTTON_COMMON_MESSAGE_RESULT = By.xpath("/html/body/div[2]/div/div/div/div[2]/div[2]/p");
-    public static final By IMPRESSIVE_RADIO_BUTTON_NAME = By.xpath("/html/body/div[2]/div/div/div/div[2]/div[2]/div[3]/label");
-    public static final String RADIO_BUTTON_RESULT_MESSAGE = "You have selected";
-    public static final String LINK_HREF_CONTENT = "https://demoqa.com/";
-    public static final String RIGHT_CLICK_RESULT_MESSAGE = "You have done a right click";
-    public static final String DOUBLE_CLICK_RESULT_MESSAGE = "You have done a double click";
-    public static final By CHECK_BOX_MENU_ITEM = By.id("item-1");
-    public static final By FIRST_LEVEL_DEOP_DOWN_LIST = By.xpath("/html/body/div[2]/div/div/div/div[2]/div[2]/div/ol/li/span/button");
-    public static final By SECOND_LEVEL_DEOP_DOWN_LIST = By.xpath("/html/body/div[2]/div/div/div/div[2]/div[2]/div/ol/li/ol/li[3]/span/button");
-    public static final By EXCEL_FILE_ITEM = By.xpath("/html/body/div[2]/div/div/div/div[2]/div[2]/div/ol/li/ol/li[3]/ol/li[2]/span/label");
-    public static final By BUTTONS_MENU_ITEM = By.id("item-4");
-    public static final By RIGHT_CLICK_BTN = By.id("rightClickBtn");
-    public static final By RIGHT_CLICK_MESSAGE = By.id("rightClickMessage");
-    public static final By DOUBLE_CLICK_BTN = By.id("doubleClickBtn");
-    public static final By DOUBLE_CLICK_MESSAGE = By.id("doubleClickMessage");
+    private static final By ELEMENTS_CARD = By.xpath("//div[@class='card-body']/h5[text()='Elements']");
+    private static final By RADIO_BUTTON_MENU_ITEM = By.id("item-2");
+    private static final By RADIO_BUTTON_COMMON_MESSAGE_RESULT = By.xpath("//p[@class='mt-3']");
+    private static final By IMPRESSIVE_RADIO_BUTTON_NAME = By.xpath("//label[@class='custom-control-label']");
+    private static final String RADIO_BUTTON_RESULT_MESSAGE = "You have selected";
+    private static final String LINK_HREF_CONTENT = "https://demoqa.com/";
+    private static final String RIGHT_CLICK_RESULT_MESSAGE = "You have done a right click";
+    private static final String DOUBLE_CLICK_RESULT_MESSAGE = "You have done a double click";
+    private static final By CHECK_BOX_MENU_ITEM = By.id("item-1");
+    private static final By FIRST_LEVEL_DROP_DOWN_LIST = By.xpath("//ol/li[1]//button[@aria-label='Toggle']");
+    private static final By SECOND_LEVEL_DROP_DOWN_LIST = By.xpath("//ol/li[3]//button[@aria-label='Toggle']");
+    private static final By EXCEL_FILE_ITEM = By.xpath("//label[@for='tree-node-excelFile']//span[@class='rct-checkbox']");
+    private static final By BUTTONS_MENU_ITEM = By.id("item-4");
+    private static final By RIGHT_CLICK_BTN = By.id("rightClickBtn");
+    private static final By RIGHT_CLICK_MESSAGE = By.id("rightClickMessage");
+    private static final By DOUBLE_CLICK_BTN = By.id("doubleClickBtn");
+    private static final By DOUBLE_CLICK_MESSAGE = By.id("doubleClickMessage");
 
     WebDriver driver;
 
@@ -73,10 +73,10 @@ public class SeleniumWebDriver {
         WebElement checkBoxMenu = driver.findElement(CHECK_BOX_MENU_ITEM);
         checkBoxMenu.click();
 
-        WebElement firstLevelDropDownList = driver.findElement(FIRST_LEVEL_DEOP_DOWN_LIST);
+        WebElement firstLevelDropDownList = driver.findElement(FIRST_LEVEL_DROP_DOWN_LIST);
         firstLevelDropDownList.click();
 
-        WebElement secondLevelDropDownList = driver.findElement(SECOND_LEVEL_DEOP_DOWN_LIST);
+        WebElement secondLevelDropDownList = driver.findElement(SECOND_LEVEL_DROP_DOWN_LIST);
         secondLevelDropDownList.click();
 
         WebElement excelFileItem = driver.findElement(EXCEL_FILE_ITEM);
