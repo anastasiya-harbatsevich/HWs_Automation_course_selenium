@@ -28,7 +28,9 @@ public class ActionsIframeProperties {
     private static final By INTERACTIONS_DRAGGABLE_ELEMENT = By.id("draggable");
     private static final By INTERACTIONS_DROPPABLE_ELEMENT = By.id("droppable");
     private static final By INTERACTIONS_RESULT_MESSAGE = By.id("droppable");
+
     WebDriver driver;
+
     @BeforeEach
     void setUp() {
         driver = new ChromeDriver();
