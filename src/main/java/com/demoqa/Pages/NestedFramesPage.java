@@ -6,6 +6,7 @@ import org.openqa.selenium.WebDriver;
 public class NestedFramesPage extends BasePage {
     private static final By NESTED_FRAME_PARENT_IFRAME = By.id("frame1");
     private static final By NESTED_FRAMES_PARENT_TITLE = By.xpath("//html/body[text()='Parent frame']");
+
     WebDriver driver;
 
     public NestedFramesPage (WebDriver driver) {

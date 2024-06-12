@@ -21,6 +21,7 @@ public class ActionsIframeProperties extends BaseTest {
 
     HomePage homePage;
     SlideMenuBar slideMenuBar;
+
     @BeforeEach
     void precondition() {
         homePage = new HomePage(driver);

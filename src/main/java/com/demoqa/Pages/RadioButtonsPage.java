@@ -7,6 +7,7 @@ import org.openqa.selenium.WebElement;
 public class RadioButtonsPage extends BasePage {
     private static final By IMPRESSIVE_RADIO_BUTTON_NAME = By.xpath("//label[@class='custom-control-label']");
     private static final By RADIO_BUTTON_COMMON_MESSAGE_RESULT = By.xpath("//p[@class='mt-3']");
+
     WebDriver driver;
 
     public RadioButtonsPage (WebDriver driver) {

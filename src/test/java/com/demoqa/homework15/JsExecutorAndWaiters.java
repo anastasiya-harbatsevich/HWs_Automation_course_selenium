@@ -18,11 +18,13 @@ import static org.openqa.selenium.support.ui.ExpectedConditions.textToBe;
 public class JsExecutorAndWaiters extends BaseTest {
     HomePage homePage;
     SlideMenuBar slideMenuBar;
+
     @BeforeEach
     void precondition() {
         homePage = new HomePage(driver);
         slideMenuBar = new SlideMenuBar(driver);
     }
+
     @Test
     void testLinkOpenedInNewTab() {
         homePage.clickElementsCard();

@@ -16,6 +16,7 @@ public class SeleniumWebDriver extends BaseTest {
     HomePage homePage;
     SlideMenuBar slideMenuBar;
     CheckBoxPage_PageFactory checkBoxPage_pageFactory;
+
     @BeforeEach
     void precondition() {
         homePage = new HomePage(driver);

@@ -5,8 +5,7 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-public class HomePage extends BasePage{
-
+public class HomePage extends BasePage {
     private static final By ELEMENTS_CARD = By.xpath("//div[@class='card-body']/h5[text()='Elements']");
     private static final By ALERTS_FRAME_WINDOW_CARD = By.xpath("//div[@class='card-body']/h5[text()='Alerts, Frame & Windows']");
     private static final By INTERACTIONS_CARD = By.xpath("//div[@class='card-body']/h5[text()='Interactions']");
@@ -39,5 +38,4 @@ public class HomePage extends BasePage{
         js.executeScript("arguments[0].scrollIntoView(true);", bookStoreApplicationCard);
         bookStoreApplicationCard.click();
     }
-
 }

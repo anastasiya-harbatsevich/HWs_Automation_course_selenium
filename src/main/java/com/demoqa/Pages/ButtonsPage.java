@@ -10,7 +10,9 @@ public class ButtonsPage extends BasePage {
     private static final By RIGHT_CLICK_MESSAGE = By.id("rightClickMessage");
     private static final By DOUBLE_CLICK_BTN = By.id("doubleClickBtn");
     private static final By DOUBLE_CLICK_MESSAGE = By.id("doubleClickMessage");
+
     WebDriver driver;
+
     public ButtonsPage (WebDriver driver) {
         this.driver = driver;
     }
@@ -25,11 +27,13 @@ public class ButtonsPage extends BasePage {
         WebElement rightClickResultMessage = driver.findElement(RIGHT_CLICK_MESSAGE);
         return rightClickResultMessage.getText();
     }
+
     public void clickDoubleClick() {
         WebElement doubleClickButton = driver.findElement(DOUBLE_CLICK_BTN);
         Actions action = new Actions(driver);
         action.contextClick(doubleClickButton).doubleClick().build().perform();
     }
+
     public String getDoubleClickResultMessage() {
         WebElement doubleClickResultMessage = driver.findElement(DOUBLE_CLICK_MESSAGE);
         return doubleClickResultMessage.getText();

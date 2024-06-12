@@ -14,6 +14,7 @@ public class CheckBoxPage_PageFactory extends BasePage {
 
     @FindBy(xpath = "//label[@for='tree-node-excelFile']//span[@class='rct-checkbox']")
     private WebElement excelFileItem;
+
     @FindBy(id = "result")
     private WebElement message;
 
