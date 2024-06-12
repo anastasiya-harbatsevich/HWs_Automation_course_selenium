@@ -1,73 +1,51 @@
 package com.demoqa.homework16;
 
-import com.demoqa.ConfigFileReader;
-import org.junit.jupiter.api.AfterEach;
+import com.demoqa.Pages.HomePage;
+import com.demoqa.Pages.NestedFramesPage;
+import com.demoqa.Pages.SlideMenuBar;
+import com.demoqa.homework17.BaseTest;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
-
-import java.time.Duration;
 
 import static org.junit.Assert.assertEquals;
 
-public class ActionsIframeProperties {
-
-    private static final By ALERTS_FRAME_WINDOW_CARD = By.xpath("//div[@class='card-body']/h5[text()='Alerts, Frame & Windows']");
-    private static final By INTERACTIONS_CARD = By.xpath("//div[@class='card-body']/h5[text()='Interactions']");
-    private static final By NESTED_FRAMES_ITEM = By.xpath("//div[@class='accordion']/div[3]//div/ul/li[@id='item-3']");
-    private static final By DROPPABLE_ITEM = By.xpath("//div[@class='accordion']/div[5]//div/ul/li[@id='item-3']");
-    private static final By NESTED_FRAME_PARENT_IFRAME = By.id("frame1");
-    private static final By NESTED_FRAMES_PARENT_TITLE = By.xpath("//html/body[text()='Parent frame']");
+public class ActionsIframeProperties extends BaseTest {
     private static final String NESTED_FRAMES_PARENT_TITLE_EXPECTED = "Parent frame";
     private static final String INTERACTIONS_RESULT_MESSAGE_EXPECTED = "Dropped!";
     private static final By INTERACTIONS_DRAGGABLE_ELEMENT = By.id("draggable");
     private static final By INTERACTIONS_DROPPABLE_ELEMENT = By.id("droppable");
     private static final By INTERACTIONS_RESULT_MESSAGE = By.id("droppable");
 
-    WebDriver driver;
+    HomePage homePage;
+    SlideMenuBar slideMenuBar;
 
     @BeforeEach
-    void setUp() {
-        driver = new ChromeDriver();
-        var configFileReader = new ConfigFileReader();
-        driver.get(configFileReader.getBaseUrl());
-        driver.manage().timeouts().implicitlyWait(Duration.ofMillis(500));
-    }
-
-    @AfterEach
-    void cleanUp() {
-        driver.quit();
+    void precondition() {
+        homePage = new HomePage(driver);
+        slideMenuBar = new SlideMenuBar(driver);
     }
 
     @Test
     void testIframe() {
-        WebElement alertsFrameWindowElement = driver.findElement(ALERTS_FRAME_WINDOW_CARD);
-        alertsFrameWindowElement.click();
+        homePage.clickAlertsFrameWindowCard();
 
-        WebElement framesItem = driver.findElement(NESTED_FRAMES_ITEM);
-        JavascriptExecutor jsExecutor = (JavascriptExecutor) driver;
-        jsExecutor.executeScript("arguments[0].click();", framesItem);
+        slideMenuBar.clickOnNestedFramesItem();
 
-        var iFrame = driver.findElement(NESTED_FRAME_PARENT_IFRAME);
-        driver.switchTo().frame(iFrame);
+        NestedFramesPage nestedFramesPage = new NestedFramesPage(driver);
+        nestedFramesPage.swithToIFrame();
 
-        var title = driver.findElement(NESTED_FRAMES_PARENT_TITLE);
-        var actualTitle = title.getText();
+        var actualTitle = nestedFramesPage.getNestedFramesParentTitle();
         assertEquals(NESTED_FRAMES_PARENT_TITLE_EXPECTED, actualTitle);
     }
 
     @Test
     void testDragAndDrop() {
-        WebElement interactionsElement = driver.findElement(INTERACTIONS_CARD);
-        interactionsElement.click();
+        homePage.clickInteractionsCard();
 
-        WebElement droppableItem = driver.findElement(DROPPABLE_ITEM);
-        droppableItem.click();
+        slideMenuBar.clickOnDroppableItem();
 
         WebElement draggable = driver.findElement(INTERACTIONS_DRAGGABLE_ELEMENT);
         WebElement droppable = driver.findElement(INTERACTIONS_DROPPABLE_ELEMENT);
